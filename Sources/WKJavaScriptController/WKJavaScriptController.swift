@@ -476,6 +476,12 @@ extension WKJavaScriptController: WKScriptMessageHandler {
             "args": args
         ] as [String: Any]
         notificationCenter.post(name: .WKJavaScriptControllerWillMethodInvocation, object: nil, userInfo: userInfo)
+
+        for arg in args {
+                if arg is NSNull {
+                    arg = "null"
+                }
+            }
         
         if ignoreMethodCallWhenReceivedNull {
             for arg in args {
