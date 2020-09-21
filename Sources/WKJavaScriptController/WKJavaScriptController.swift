@@ -477,9 +477,9 @@ extension WKJavaScriptController: WKScriptMessageHandler {
         ] as [String: Any]
         notificationCenter.post(name: .WKJavaScriptControllerWillMethodInvocation, object: nil, userInfo: userInfo)
 
-        for arg in args {
+        for var arg in args {
                 if arg is NSNull {
-                    arg = "null"
+                    arg = "null" as String
                 }
             }
         
